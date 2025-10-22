@@ -1,0 +1,213 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs", "hatch-fancy-pypi-readme"]
+build-backend = "hatchling.build"
+
+[project]
+name = "avaread"
+description = "A project for reading spectra from Avantes AvaSoft files in python"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT"}
+# keywords for easier look-up on PyPI
+keywords = ["keyword_1", "keyword_2"] # ToDo: Modify according to your needs!
+authors = [
+    { name = "Antoine Salden", email = "t.p.w.salden@tue.nl" },
+]
+# options under https://pypi.org/classifiers/
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: Implementation :: CPython",
+]
+dependencies = ["numpy"]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+docs = [
+    "mkdocs-material",
+    "mkdocstrings",
+    "mkdocstrings-python",
+    "mkdocstrings-python-xref",
+    "mkdocs-api-autonav",
+    "mkdocs-jupyter",
+    "mkdocs-section-index",
+    "mkdocs-git-revision-date-localized-plugin",
+    "mkdocs-include-markdown-plugin",
+    "pymdown-extensions",
+    "mkdocs-github-admonitions-plugin",
+    "ruff",
+    "pygments"
+]
+
+[project.urls]
+Documentation = "https://github.com/AntoineTUE/avaread"
+Source = "https://github.com/AntoineTUE/avaread"
+
+
+[tool.hatch.metadata]
+# direct dependency references, e.g `pip @ git+https://github.com/pypa/pip.git@master`
+allow-direct-references = false
+
+[tool.hatch.version]
+source = "vcs"
+fallback-version = "0.0.1-dev0"
+raw-options = { version_scheme = "no-guess-dev" }
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/avaread/_version.py"
+
+[tool.hatch.build]
+packages = ["src/avaread"]
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+    "/.github",
+]
+
+[tool.mypy]
+files = ["src/avaread", "tests"]
+disallow_untyped_defs = false
+follow_imports = "normal" # "silent" for not following
+ignore_missing_imports = true
+pretty = true
+show_column_numbers = true
+warn_no_return = false
+warn_unused_ignores = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --doctest-glob='*.md'"
+testpaths = [
+    "tests",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["src/avaread"]
+omit = [
+    "_version.py",  # automatically created by hatch-vcs, not in repo
+]
+
+[tool.coverage.paths]
+source = [
+    "src/",
+    "*/site-packages/",
+]
+
+[tool.coverage.report]
+# Regexes for lines to exclude from consideration
+exclude_lines = [
+    # Have to re-enable the standard pragma
+    "pragma: no cover",
+
+    # Don't complain about missing debug-only code:
+    "def __repr__",
+    "if self\\.debug",
+
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
+
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+indent-width = 4
+include = [
+    "src/**/*.py",
+    "src/**/*.pyi",
+    "tests/**/*.py",
+    "tests/**/*.pyi"
+]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F","C4", "SIM", "TC", "NPY","B","UP","D"]
+ignore = ["F401"]
+unfixable = [
+    # "F401",  # Don't touch unused imports
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google" # pep257
+
+[tool.ruff.lint.isort]
+known-first-party = ["avaread"]
+
+
+[tool.ruff.lint.per-file-ignores]
+# Allow print/pprint
+"examples/*" = ["T201"]
+# Tests can use magic values, assertions, and relative imports
+"tests/**/*" = ["PLR2004", "S101", "TID252","D","F401"]
+
+[tool.hatch.metadata.hooks.fancy-pypi-readme]
+content-type = "text/markdown"
+fragments = [
+    { path = "README.md" }
+]
+
+[tool.uv]
+cache-keys = [{ git = true }]
+
+[tool.hatch.envs.default]
+python = "3.13"
+post-install-commands = ["pre-commit install"]
+dependencies = ["numpy", "pandas", "matplotlib", "ipython","ipykernel","mypy==1.18.2"]
+installer = "uv"
+
+
+[tool.hatch.envs.default.scripts]
+typing = ["mypy --install-types --non-interactive {args}"]
+
+[tool.hatch.envs.hatch-static-analysis]
+dependencies = ["ruff==0.14.1"]
+
+[tool.hatch.envs.test]
+dependencies = [
+    # required test dependencies
+    "coverage[toml]>=6.2",
+    "pytest",
+    "pytest-cov",
+    "pytest-mock",
+    "pytest-vcr",
+    "pytest-sugar",
+    "hypothesis",
+]
+
+[tool.hatch.envs.test.scripts]
+cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=src/avaread --cov=tests {args}"
+no-cov = "cov --no-cov {args}"
+debug =  "cov --no-cov -s --pdb --pdbcls=IPython.core.debugger:Pdb {args}"
+
+[tool.hatch.envs.docs]
+skip-install = true
+features = ["docs"]
+dependencies = ["mike"]
+
+[tool.hatch.envs.docs.scripts]
+serve = "mkdocs serve -f mkdocs.yml {args}"
+build = "mkdocs build --clean -f mkdocs.yml {args}"
+ci-build = "mike deploy --config-file mkdocs.yml --update-aliases {args}"
+
+# Lint environment
+[tool.hatch.envs.lint]
+template = "lint"  # don't inherit from default!
+dependencies = [
+    "mypy==1.18.2",
+]
+
+
+# Test matrix for various Python versions replacing the functionality of tox
+[[tool.hatch.envs.py-test.matrix]]
+template = ["test"]
+python = ["310", "311", "312","313", "314"]
