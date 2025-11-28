@@ -10,6 +10,7 @@ site_dir: site
 
 watch:
   - src/avaread
+  - docs
 
 nav:
   - Home: index.md
@@ -20,11 +21,9 @@ nav:
 theme:
   name: material
   language: en
-  # logo: assets/logo.svg
-  # favicon: assets/logo.svg
   icon:
     repo: fontawesome/brands/github-alt
-    logo: fontawesome/solid/atom
+    logo: material/book-open
   font:
     text: Roboto
     code: Roboto Mono
@@ -44,7 +43,6 @@ theme:
         icon: material/lightbulb
         name: Switch to dark mode
   features:
-
     - navigation.footer
     - navigation.sections
     - toc.follow
@@ -76,14 +74,17 @@ plugins:
       python_xref:
         paths:
           - src
+        inventories:
+          - https://numpy.org/doc/stable/objects.inv
         options:
           members_order: source
           relative_crossrefs: true
           docstring_style: google
           docstring_options:
             ignore_init_summary: yes
-          # filters:
-          #   - "!^__"
+          filters:
+            - "!^__"
+          summary: true
           merge_init_into_class: yes
           show_submodules: no
           show_root_heading: false
@@ -94,13 +95,15 @@ plugins:
           show_docstring_attributes: true
           show_docstring_functions: true
           annotations_path: brief
-          separate_signature: false
-          line_length: 88
+          separate_signature: true
+          signature_crossrefs: true
+          line_length: 120
           show_signature_annotations: true
           show_bases: true
           show_symbol_type_heading: true
           show_symbol_type_toc: true
-          show_labels: true
+          show_labels: false
+          show_attribute_values: true
           extra:
             show_docstrings_modules: true
   mkdocs-jupyter:

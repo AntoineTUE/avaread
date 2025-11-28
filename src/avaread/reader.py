@@ -39,7 +39,7 @@ class StructMapping:
 
     You should not use this class to modify attributes, rather you should update the underlying struct(s) itself.
 
-    The main purpose is to map (nested) structures to a nicer representation.
+    The main purpose is to map (nested) structures to types that are easier to work with and represent in Python.
     """
 
     def __init__(self, struct: MappableStructure):
@@ -136,7 +136,7 @@ class AVSChannel:
 
         Supports traversing the header hierarcy via attribute access.
 
-        Exampe: `AVSChannel.Measurement.StartPixel`
+        Example: `AVSChannel.Measurement.StartPixel`
         """
         return getattr(self._mapping, name)
 

@@ -195,7 +195,7 @@ features = ["docs"]
 dependencies = ["mike"]
 
 [tool.hatch.envs.docs.scripts]
-serve = "mkdocs serve -f mkdocs.yml {args}"
+serve = "mkdocs serve -f mkdocs.yml --livereload {args}"
 build = "mkdocs build --clean -f mkdocs.yml {args}"
 ci-build = "mike deploy --config-file mkdocs.yml --update-aliases {args}"
 
