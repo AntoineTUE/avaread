@@ -17,7 +17,7 @@ from numpy.typing import NDArray
 
 
 class AvaReadException(BaseException):
-    """Exception thrown when we there are problems when reading a file."""
+    """Exception thrown when there are problems when reading a file."""
 
 
 def _extract_datetime(timestamp: int):
@@ -31,7 +31,7 @@ def _extract_datetime(timestamp: int):
 
 
 class StructMapping:
-    """Object to map the contents of a structure to more python-native object.
+    """Object to map the contents of a C structure to more python-native objects.
 
     Enum values will be mapped to the appropriate enums (if set in the [`MappableStructure._map`][(p).AvaTypes.MappableStructure._map] attribute), while numeric arrays will use numpy arrays, and `char` arrays become strings.
 
@@ -89,7 +89,7 @@ class StructMapping:
 
     def __repr__(self):
         """Returns string representation of the [StructMapping][(c)], showing which type of struct is being mapped."""
-        return f"Mapped{self._name}\n"
+        return f"Mapped{self._name}({','.join(self.fields)})"
 
     def print(self, prefix: str = ""):
         """Print the contents of the underlying struct by traversing it's hierarchy.
@@ -177,6 +177,15 @@ class AVSChannel:
         return _extract_datetime(self.Timestamp)
 
     @property
+    def pixels(self):
+        """Return the amount of active pixels of the acquisition.
+
+        Note:
+            This can be different from the total pixel count of the sensor if some pixels are deactivated.
+        """
+        return len(self)
+
+    @property
     def exposure(self):
         """The exposure time used in milliseconds.
 
@@ -258,7 +267,7 @@ class AVSFile:
 
         Along with `__getitem__` this makes the class iterable, i.e. one can iterate over channels contained within.
         """
-        return len(self.preamble.channels)
+        return self.preamble.channels
 
     @property
     def name(self):
@@ -336,6 +345,20 @@ class STRFile:
     def name(self):
         """The name of the file, including extension."""
         return self.path.name
+
+    @property
+    def frames(self) -> int:
+        """Return the amount of frames stored in the file."""
+        return self.preamble.frames
+
+    @property
+    def pixels(self):
+        """Return the amount of active pixels of the acquisition.
+
+        Note:
+            This can be different from the total pixel count of the sensor if some pixels are deactivated.
+        """
+        return self.Measurement.StopPixel - self.Measurement.StartPixel
 
     @property
     def exposure(self):

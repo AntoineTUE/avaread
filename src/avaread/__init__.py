@@ -3,7 +3,7 @@
 It supports both 'regular' files, as well as STR (Store-to-RAM) files.
 """
 
-__all__ = ["AVSFile", "STRFile", "open_file"]
+__all__ = ["read_file"]
 
 from .reader import read_file
 
