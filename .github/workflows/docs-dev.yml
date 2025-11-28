@@ -1,0 +1,37 @@
+name: Developer docs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        # Fetch all history for applying timestamps to every page
+        fetch-depth: 0
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+    - name: install UV
+      uses: astral-sh/setup-uv@v6
+      with:
+        version: "latest"
+        enable-cache: true
+        activate-environment: true
+    - name: install Hatch
+      run: uv pip install --upgrade --system hatch
+    - name: Configure Git for GitHub Actions
+      run: |
+        git config --local user.name 'github-actions[bot]'
+        git config --local user.emal 'github-actions[bot]@users.noreply.github.com'
+    - name: Deploy with mike
+      run: hatch run docs:mkdocs gh-deploy --force
+
+
