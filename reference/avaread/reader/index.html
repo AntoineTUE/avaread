@@ -1915,7 +1915,7 @@
     </table>
 
                   <details class="mkdocstrings-source">
-                    <summary>Source code in <code>src\avaread\reader.py</code></summary>
+                    <summary>Source code in <code>src/avaread/reader.py</code></summary>
                     <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="45 "></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">struct</span><span class="p">:</span> <span class="n">MappableStructure</span><span class="p">):</span>
 <span class="linenos" data-linenos="46 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a shallow proxy object for a [`MappableStructure`][(p).AvaTypes.MappableStructure] that maps the contents to python native types.&quot;&quot;&quot;</span>
 <span class="linenos" data-linenos="47 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
@@ -2039,7 +2039,7 @@
 
 
             <details class="mkdocstrings-source">
-              <summary>Source code in <code>src\avaread\reader.py</code></summary>
+              <summary>Source code in <code>src/avaread/reader.py</code></summary>
               <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 94 "></span><span class="k">def</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
 <span class="linenos" data-linenos=" 95 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Print the contents of the underlying struct by traversing it&#39;s hierarchy.</span>
 <span class="linenos" data-linenos=" 96 "></span>
@@ -2285,7 +2285,7 @@
     </table>
 
                   <details class="mkdocstrings-source">
-                    <summary>Source code in <code>src\avaread\reader.py</code></summary>
+                    <summary>Source code in <code>src/avaread/reader.py</code></summary>
                     <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="120 "></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="n">AVSInfoBlock</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">]):</span>
 <span class="linenos" data-linenos="121 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Instantiate a `AVSChannel` from a header (which contain metadata) and data.</span>
 <span class="linenos" data-linenos="122 "></span>
@@ -2555,7 +2555,7 @@
 
 
             <details class="mkdocstrings-source">
-              <summary>Source code in <code>src\avaread\reader.py</code></summary>
+              <summary>Source code in <code>src/avaread/reader.py</code></summary>
               <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="154 "></span><span class="nd">@classmethod</span>
 <span class="linenos" data-linenos="155 "></span><span class="k">def</span><span class="w"> </span><span class="nf">from_buffer</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="linenos" data-linenos="156 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Read the binary data for a channel from an opened file handle.</span>
@@ -2685,7 +2685,7 @@
     </table>
 
                   <details class="mkdocstrings-source">
-                    <summary>Source code in <code>src\avaread\reader.py</code></summary>
+                    <summary>Source code in <code>src/avaread/reader.py</code></summary>
                     <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="234 "></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
 <span class="linenos" data-linenos="235 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Read a AVS file from disk and create an object that can be used to easily acces the (meta)data.&quot;&quot;&quot;</span>
 <span class="linenos" data-linenos="236 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
@@ -2992,7 +2992,7 @@
     </table>
 
                   <details class="mkdocstrings-source">
-                    <summary>Source code in <code>src\avaread\reader.py</code></summary>
+                    <summary>Source code in <code>src/avaread/reader.py</code></summary>
                     <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="289 "></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
 <span class="linenos" data-linenos="290 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Read a STR file from disk and create an object that can be used to easily acces the (meta)data.&quot;&quot;&quot;</span>
 <span class="linenos" data-linenos="291 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">preamble</span> <span class="o">=</span> <span class="n">STRPreamble</span><span class="p">()</span>
@@ -3412,7 +3412,7 @@
 
 
             <details class="mkdocstrings-source">
-              <summary>Source code in <code>src\avaread\reader.py</code></summary>
+              <summary>Source code in <code>src/avaread/reader.py</code></summary>
               <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="23 "></span><span class="k">def</span><span class="w"> </span><span class="nf">_extract_datetime</span><span class="p">(</span><span class="n">timestamp</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span class="linenos" data-linenos="24 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract a `datetime` object from a provided timestamp.&quot;&quot;&quot;</span>
 <span class="linenos" data-linenos="25 "></span>    <span class="n">year</span> <span class="o">=</span> <span class="n">timestamp</span> <span class="o">&gt;&gt;</span> <span class="mi">20</span>
@@ -3445,7 +3445,7 @@
 
 
             <details class="mkdocstrings-source">
-              <summary>Source code in <code>src\avaread\reader.py</code></summary>
+              <summary>Source code in <code>src/avaread/reader.py</code></summary>
               <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="400 "></span><span class="k">def</span><span class="w"> </span><span class="nf">read_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AVSFile</span> <span class="o">|</span> <span class="n">STRFile</span><span class="p">:</span>
 <span class="linenos" data-linenos="401 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Open a file saved by Avantes AvaSoft.</span>
 <span class="linenos" data-linenos="402 "></span>
