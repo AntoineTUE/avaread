@@ -29,7 +29,7 @@ dynamic = ["version"]
 
 [project.optional-dependencies]
 docs = [
-    "mkdocs-material",
+    "mkdocs-material==9.7.0",
     "mkdocstrings",
     "mkdocstrings-python",
     "mkdocstrings-python-xref",
@@ -192,7 +192,7 @@ debug =  "cov --no-cov -s --pdb --pdbcls=IPython.core.debugger:Pdb {args}"
 [tool.hatch.envs.docs]
 skip-install = true
 features = ["docs"]
-dependencies = ["mike"]
+dependencies = ["mike==2.1.3"]
 
 [tool.hatch.envs.docs.scripts]
 serve = "mkdocs serve -f mkdocs.yml --livereload {args}"

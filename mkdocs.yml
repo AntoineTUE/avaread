@@ -1,10 +1,10 @@
 site_name: avaread
 site_description: A project for reading spectra from Avantes AvaSoft files in python
 site_author: Antoine Salden
-site_url: https://github.com/AntoineTUE/avaread
+site_url: https://github.com/AntoineTUE/avaread/
 copyright: 'Copyright &copy; Antoine Salden 2025-present'
 repo_name: avaread
-repo_url: https://github.com/AntoineTUE/avaread
+repo_url: https://github.com/AntoineTUE/avaread/
 docs_dir: docs
 site_dir: site
 
@@ -56,6 +56,7 @@ plugins:
   mike:
     alias_type: symlink
     canonical_version: dev
+    version_selector: true
   git-revision-date-localized:
     exclude:
       - reference/*

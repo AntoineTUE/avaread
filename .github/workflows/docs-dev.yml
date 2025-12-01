@@ -1,12 +1,14 @@
 name: Developer docs
-
 on:
   push:
     branches:
       - main
+permissions:
+  pages: write
+  id-token: write
 
 jobs:
-  deploy:
+  deploy_docs_dev:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -32,6 +34,6 @@ jobs:
         git config --local user.name 'github-actions[bot]'
         git config --local user.emal 'github-actions[bot]@users.noreply.github.com'
     - name: Deploy with mike
-      run: hatch run docs:mkdocs gh-deploy
+      run: hatch run docs:ci-build --push dev
 
 
