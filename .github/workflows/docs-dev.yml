@@ -32,7 +32,7 @@ jobs:
     - name: Configure Git for GitHub Actions
       run: |
         git config --local user.name 'github-actions[bot]'
-        git config --local user.emal 'github-actions[bot]@users.noreply.github.com'
+        git config --local user.email 'github-actions[bot]@users.noreply.github.com'
     - name: Deploy with mike
       run: hatch run docs:ci-build --push dev
 
