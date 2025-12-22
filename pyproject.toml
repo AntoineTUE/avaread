@@ -5,11 +5,10 @@ build-backend = "hatchling.build"
 [project]
 name = "avaread"
 description = "A project for reading spectra from Avantes AvaSoft files in python"
-readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT"}
 # keywords for easier look-up on PyPI
-keywords = ["keyword_1", "keyword_2"] # ToDo: Modify according to your needs!
+keywords = ["spectroscopy", "file-reader","Avantes","Avantes AvaSoft","data analysis"] 
 authors = [
     { name = "Antoine Salden", email = "t.p.w.salden@tue.nl" },
 ]
@@ -23,9 +22,13 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
     "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License"
 ]
 dependencies = ["numpy"]
-dynamic = ["version"]
+dynamic = ["version","readme"]
 
 [project.optional-dependencies]
 docs = [

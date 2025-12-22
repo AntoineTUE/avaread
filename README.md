@@ -1,5 +1,12 @@
 # AvaRead
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18018067.svg)](https://doi.org/10.5281/zenodo.18018067)
+[![GitHub License](https://img.shields.io/github/license/AntoineTUE/avaread)](https//www.github.com/AntoineTUE/avaread/blob/main/LICENSE)
+[![GitHub Workflow Status build](https://img.shields.io/github/actions/workflow/status/AntoineTUE/avaread/build.yml?label=PyPI%20build)](https://pypi.python.org/pypi/avaread)
+[![GitHub Workflow Status docs](https://img.shields.io/github/actions/workflow/status/AntoineTUE/avaread/docs-dev.yml?label=Documentation%20build)](https://antoinetue.github.io/avaread)
+[![PyPI - Version](https://img.shields.io/pypi/v/avaread)](https://pypi.python.org/pypi/avaread)
+[![PyPI - Python versions](https://img.shields.io/pypi/pyversions/avaread.svg)](https://pypi.python.org/pypi/avaread)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/avaread)](https://pypistats.org/packages/avaread)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch)
 
@@ -10,11 +17,18 @@ It supports all Avantes multichannel files (e.g. `.raw8`, `.rir8`, etc.), readin
 Importantly, this means you can work with these files directly in your analysis!
 
 * No need to convert your `.raw8` (or equivalent files) to work with them
+
 * No need to convert your `.str8` into large sets of files with very similar names!
 
 ## Installing
 
 `AvaRead` can be easily installed with `pip` and only has `numpy` as a dependency, which will be installed if missing.
+
+You can install the latest release from PyPI:
+
+```shell
+pip install avaread
+```
 
 To install the latest development version from GitHub, you can use:
 
