@@ -1,21 +1,16 @@
-name: Developer docs
+name: Build/Publish Latest Release Docs
+
 on:
-  push:
-    branches:
-      - main
-    tags-ignore: 
-      - v*
+  release:
+    types: [published]
+
 permissions:
   contents: write
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
-  deploy_docs_dev:
+  deploy_docs_release:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -40,7 +35,5 @@ jobs:
       run: |
         git config --local user.name 'github-actions[bot]'
         git config --local user.email 'github-actions[bot]@users.noreply.github.com'
-    - name: Deploy with mike
-      run: hatch run docs:ci-build --push dev
-
-
+    - name: Build Docs Website
+      run: hatch run docs:ci-build --push --update-aliases ${{ github.event.release.tag_name }} latest
