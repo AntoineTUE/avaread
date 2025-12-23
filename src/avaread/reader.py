@@ -319,13 +319,13 @@ class STRFile:
 
     Instead of an [`AVSFile`][(m).], these files store data for a single channel, but multiple `frames` in sequence.
 
-    The raw signals for all frames are stored in the [data][..] attribute as a numpy array.
+    The raw signals for all frames are stored in the [data][(c).] attribute as a numpy array.
 
     This array has the shape (pixels, frames), where pixels is the full size of the used CCD sensor.
 
     If the data was acquired with a smaller region on the sensor active, the inactive pixels will contain zeros.
 
-    The attributes `scope`, `dark`, `ref`, and `signal` all conveniently return only the active part of the array.
+    The attributes [`scope`][.], [`dark`][.], [`ref`][.], and [`signal`][.] all conveniently return only the active part of the array.
 
     In addition, you can iterate over an `STRFile` to get the background-corrected data on a per-frame basis, or use access-by-index.
 
