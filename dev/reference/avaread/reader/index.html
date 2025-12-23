@@ -2988,10 +2988,10 @@
         <p>A Store-to-RAM (STR) file.</p>
 <p>These STR files store multiple frames acquired by a single channel, i.e. a kinetic series, or a time-lapse.</p>
 <p>Instead of an <a class="autorefs autorefs-internal" title="            AVSFile" href="#avaread.reader.AVSFile"><code>AVSFile</code></a>, these files store data for a single channel, but multiple <code>frames</code> in sequence.</p>
-<p>The raw signals for all frames are stored in the [data][avaread.reader.data] attribute as a numpy array.</p>
+<p>The raw signals for all frames are stored in the <a class="autorefs autorefs-internal" title="            data" href="#avaread.reader.STRFile.data">data</a> attribute as a numpy array.</p>
 <p>This array has the shape (pixels, frames), where pixels is the full size of the used CCD sensor.</p>
 <p>If the data was acquired with a smaller region on the sensor active, the inactive pixels will contain zeros.</p>
-<p>The attributes <code>scope</code>, <code>dark</code>, <code>ref</code>, and <code>signal</code> all conveniently return only the active part of the array.</p>
+<p>The attributes <a class="autorefs autorefs-internal" title="            scope" href="#avaread.reader.STRFile.scope"><code>scope</code></a>, <a class="autorefs autorefs-internal" title="            dark" href="#avaread.reader.STRFile.dark"><code>dark</code></a>, <a class="autorefs autorefs-internal" title="            ref" href="#avaread.reader.STRFile.ref"><code>ref</code></a>, and <a class="autorefs autorefs-internal" title="            signal" href="#avaread.reader.STRFile.signal"><code>signal</code></a> all conveniently return only the active part of the array.</p>
 <p>In addition, you can iterate over an <code>STRFile</code> to get the background-corrected data on a per-frame basis, or use access-by-index.</p>
 <p>Example:
 <div class="highlight"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;./some_str_file.str&quot;</span><span class="p">)</span>
