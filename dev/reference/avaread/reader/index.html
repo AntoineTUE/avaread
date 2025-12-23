@@ -641,6 +641,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#avaread.reader.AVSChannel.serial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;serial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#avaread.reader.AVSChannel.date" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -921,6 +932,17 @@
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avaread.reader.STRFile.serial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;serial
       
     </span>
   </a>
@@ -1248,6 +1270,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#avaread.reader.AVSChannel.serial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;serial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#avaread.reader.AVSChannel.date" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1528,6 +1561,17 @@
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avaread.reader.STRFile.serial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;serial
       
     </span>
   </a>
@@ -1915,7 +1959,7 @@
     </table>
 
                   <details class="mkdocstrings-source">
-                    <summary>Source code in <code>src\avaread\reader.py</code></summary>
+                    <summary>Source code in <code>src/avaread/reader.py</code></summary>
                     <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="45 "></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">struct</span><span class="p">:</span> <span class="n">MappableStructure</span><span class="p">):</span>
 <span class="linenos" data-linenos="46 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a shallow proxy object for a [`MappableStructure`][(p).AvaTypes.MappableStructure] that maps the contents to python native types.&quot;&quot;&quot;</span>
 <span class="linenos" data-linenos="47 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
@@ -2039,7 +2083,7 @@
 
 
             <details class="mkdocstrings-source">
-              <summary>Source code in <code>src\avaread\reader.py</code></summary>
+              <summary>Source code in <code>src/avaread/reader.py</code></summary>
               <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 94 "></span><span class="k">def</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
 <span class="linenos" data-linenos=" 95 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Print the contents of the underlying struct by traversing it&#39;s hierarchy.</span>
 <span class="linenos" data-linenos=" 96 "></span>
@@ -2088,6 +2132,9 @@
         <p>Represents data and metadata header of an Avantes spectrometer channel.</p>
 <p>Each <a class="autorefs autorefs-internal" title="            AVSFile" href="#avaread.reader.AVSFile"><code>AVSFile</code></a> can stores one or more blocks containing this information, one for each channel/spectrometer.</p>
 
+        <p>To access the data you can use the following attibutes:
+<a class="autorefs autorefs-internal" title="            scope" href="#avaread.reader.AVSChannel.scope"><code>scope</code></a> corresponds to the raw signal, <a class="autorefs autorefs-internal" title="            dark" href="#avaread.reader.AVSChannel.dark"><code>dark</code></a> to the associated background signal, and <a class="autorefs autorefs-internal" title="            ref" href="#avaread.reader.AVSChannel.ref"><code>ref</code></a> to a reference signal.</p>
+<p>In addition, the <a class="autorefs autorefs-internal" title="            data" href="#avaread.reader.AVSChannel.data"><code>data</code></a> attribute gives you the array of all these signals together.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2135,7 +2182,6 @@
           </tr>
       </tbody>
     </table>
-        <p><a class="autorefs autorefs-internal" title="            scope" href="#avaread.reader.AVSChannel.scope"><code>scope</code></a> corresponds to the raw signal, <a class="autorefs autorefs-internal" title="            dark" href="#avaread.reader.AVSChannel.dark"><code>dark</code></a> to the associated background signal, and [<code>reference</code>][avaread.reader.AVSChannel.reference] to a reference signal.</p>
 
 
 
@@ -2198,6 +2244,16 @@
             <td>
               <div class="doc-md-description">
                 
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><a class="autorefs autorefs-internal" title="            serial (avaread.reader.AVSChannel.serial)" href="#avaread.reader.AVSChannel.serial">serial</a></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The serial number of the spectrometer.</p>
               </div>
             </td>
           </tr>
@@ -2285,18 +2341,23 @@
     </table>
 
                   <details class="mkdocstrings-source">
-                    <summary>Source code in <code>src\avaread\reader.py</code></summary>
+                    <summary>Source code in <code>src/avaread/reader.py</code></summary>
                     <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="120 "></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="n">AVSInfoBlock</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">]):</span>
 <span class="linenos" data-linenos="121 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Instantiate a `AVSChannel` from a header (which contain metadata) and data.</span>
 <span class="linenos" data-linenos="122 "></span>
-<span class="linenos" data-linenos="123 "></span><span class="sd">    Arguments:</span>
-<span class="linenos" data-linenos="124 "></span><span class="sd">        header:     A C Structure containing channel-specific metadata.</span>
-<span class="linenos" data-linenos="125 "></span><span class="sd">        data:       A 2D array with columns in the order [`wavelength`,`scope`,`dark`,`reference`]</span>
-<span class="linenos" data-linenos="126 "></span>
-<span class="linenos" data-linenos="127 "></span><span class="sd">    [`scope`][..] corresponds to the raw signal, [`dark`][..] to the associated background signal, and [`reference`][..] to a reference signal.</span>
-<span class="linenos" data-linenos="128 "></span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="linenos" data-linenos="129 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_mapping</span> <span class="o">=</span> <span class="n">StructMapping</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
-<span class="linenos" data-linenos="130 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+<span class="linenos" data-linenos="123 "></span><span class="sd">    To access the data you can use the following attibutes:</span>
+<span class="linenos" data-linenos="124 "></span><span class="sd">    [`scope`][..] corresponds to the raw signal, [`dark`][..] to the associated background signal, and [`ref`][..] to a reference signal.</span>
+<span class="linenos" data-linenos="125 "></span>
+<span class="linenos" data-linenos="126 "></span><span class="sd">    In addition, the [`data`][..] attribute gives you the array of all these signals together.</span>
+<span class="linenos" data-linenos="127 "></span>
+<span class="linenos" data-linenos="128 "></span><span class="sd">    Arguments:</span>
+<span class="linenos" data-linenos="129 "></span><span class="sd">        header:     A C Structure containing channel-specific metadata.</span>
+<span class="linenos" data-linenos="130 "></span><span class="sd">        data:       A 2D array with columns in the order [`wavelength`,`scope`,`dark`,`reference`]</span>
+<span class="linenos" data-linenos="131 "></span>
+<span class="linenos" data-linenos="132 "></span>
+<span class="linenos" data-linenos="133 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="134 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_mapping</span> <span class="o">=</span> <span class="n">StructMapping</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+<span class="linenos" data-linenos="135 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
 </code></pre></div>
                   </details>
 
@@ -2361,6 +2422,26 @@
 </code></pre></div>
 
     <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="avaread.reader.AVSChannel.serial" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">serial</span>
+
+
+<a href="#avaread.reader.AVSChannel.serial" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">serial</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>The serial number of the spectrometer.</p>
 
     </div>
 
@@ -2555,26 +2636,26 @@
 
 
             <details class="mkdocstrings-source">
-              <summary>Source code in <code>src\avaread\reader.py</code></summary>
-              <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="154 "></span><span class="nd">@classmethod</span>
-<span class="linenos" data-linenos="155 "></span><span class="k">def</span><span class="w"> </span><span class="nf">from_buffer</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-<span class="linenos" data-linenos="156 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Read the binary data for a channel from an opened file handle.</span>
-<span class="linenos" data-linenos="157 "></span>
-<span class="linenos" data-linenos="158 "></span><span class="sd">    Each block of binary data has an empty padding of 3779 bytes it seems, plus [`PADDING`][..], between each channel binary block.</span>
-<span class="linenos" data-linenos="159 "></span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="linenos" data-linenos="160 "></span>    <span class="n">startBlock</span> <span class="o">=</span> <span class="n">buffer</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
-<span class="linenos" data-linenos="161 "></span>    <span class="n">header</span> <span class="o">=</span> <span class="n">AVSInfoBlock</span><span class="p">()</span>
-<span class="linenos" data-linenos="162 "></span>    <span class="n">buffer</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">SEEK_CUR</span><span class="p">)</span>
-<span class="linenos" data-linenos="163 "></span>    <span class="n">buffer</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
-<span class="linenos" data-linenos="164 "></span>    <span class="n">num_pixels</span> <span class="o">=</span> <span class="n">header</span><span class="o">.</span><span class="n">Measurement</span><span class="o">.</span><span class="n">StopPixel</span> <span class="o">-</span> <span class="n">header</span><span class="o">.</span><span class="n">Measurement</span><span class="o">.</span><span class="n">StartPixel</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="linenos" data-linenos="165 "></span>    <span class="c1"># TODO: check if we need to account for start pixel being not the 0th pixel, thus needing to offset the read into the block.</span>
-<span class="linenos" data-linenos="166 "></span>    <span class="c1"># It does not appear we read a pixel count, only start and stop pixels, thus don&#39;t know the size of the array/block.</span>
-<span class="linenos" data-linenos="167 "></span>    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">num_pixels</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-<span class="linenos" data-linenos="168 "></span>    <span class="c1"># endData = buffer.tell()</span>
-<span class="linenos" data-linenos="169 "></span>    <span class="c1"># print(f&quot;{endData=},{startBlock+header.blockLength-endData=}&quot;)</span>
-<span class="linenos" data-linenos="170 "></span>    <span class="c1"># TODO: Check if this padding has a role, or is just padding</span>
-<span class="linenos" data-linenos="171 "></span>    <span class="n">buffer</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">startBlock</span> <span class="o">+</span> <span class="n">header</span><span class="o">.</span><span class="n">blockLength</span> <span class="o">+</span> <span class="bp">cls</span><span class="o">.</span><span class="n">PADDING</span><span class="p">)</span>
-<span class="linenos" data-linenos="172 "></span>    <span class="k">return</span> <span class="n">AVSChannel</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+              <summary>Source code in <code>src/avaread/reader.py</code></summary>
+              <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="159 "></span><span class="nd">@classmethod</span>
+<span class="linenos" data-linenos="160 "></span><span class="k">def</span><span class="w"> </span><span class="nf">from_buffer</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="linenos" data-linenos="161 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Read the binary data for a channel from an opened file handle.</span>
+<span class="linenos" data-linenos="162 "></span>
+<span class="linenos" data-linenos="163 "></span><span class="sd">    Each block of binary data has an empty padding of 3779 bytes it seems, plus [`PADDING`][..], between each channel binary block.</span>
+<span class="linenos" data-linenos="164 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="165 "></span>    <span class="n">startBlock</span> <span class="o">=</span> <span class="n">buffer</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+<span class="linenos" data-linenos="166 "></span>    <span class="n">header</span> <span class="o">=</span> <span class="n">AVSInfoBlock</span><span class="p">()</span>
+<span class="linenos" data-linenos="167 "></span>    <span class="n">buffer</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">SEEK_CUR</span><span class="p">)</span>
+<span class="linenos" data-linenos="168 "></span>    <span class="n">buffer</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+<span class="linenos" data-linenos="169 "></span>    <span class="n">num_pixels</span> <span class="o">=</span> <span class="n">header</span><span class="o">.</span><span class="n">Measurement</span><span class="o">.</span><span class="n">StopPixel</span> <span class="o">-</span> <span class="n">header</span><span class="o">.</span><span class="n">Measurement</span><span class="o">.</span><span class="n">StartPixel</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="170 "></span>    <span class="c1"># TODO: check if we need to account for start pixel being not the 0th pixel, thus needing to offset the read into the block.</span>
+<span class="linenos" data-linenos="171 "></span>    <span class="c1"># It does not appear we read a pixel count, only start and stop pixels, thus don&#39;t know the size of the array/block.</span>
+<span class="linenos" data-linenos="172 "></span>    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">num_pixels</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="linenos" data-linenos="173 "></span>    <span class="c1"># endData = buffer.tell()</span>
+<span class="linenos" data-linenos="174 "></span>    <span class="c1"># print(f&quot;{endData=},{startBlock+header.blockLength-endData=}&quot;)</span>
+<span class="linenos" data-linenos="175 "></span>    <span class="c1"># TODO: Check if this padding has a role, or is just padding</span>
+<span class="linenos" data-linenos="176 "></span>    <span class="n">buffer</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">startBlock</span> <span class="o">+</span> <span class="n">header</span><span class="o">.</span><span class="n">blockLength</span> <span class="o">+</span> <span class="bp">cls</span><span class="o">.</span><span class="n">PADDING</span><span class="p">)</span>
+<span class="linenos" data-linenos="177 "></span>    <span class="k">return</span> <span class="n">AVSChannel</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 </code></pre></div>
             </details>
     </div>
@@ -2598,7 +2679,7 @@
 
 
 <a href="#avaread.reader.AVSFile" class="headerlink" title="Permanent link">&para;</a></h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">AVSFile</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n"><span title="pathlib.Path">Path</span></span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">AVSFile</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n"><span title="pathlib.Path">Path</span></span> <span class="o">|</span> <span class="n"><span title="str">str</span></span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -2606,7 +2687,54 @@
 
 
         <p>A file in Avantes <code>AVS</code> format, containing data from one or more channels.</p>
-<p>Each AVSFile will contain one or more <a class="autorefs autorefs-internal" title="            AVSChannel" href="#avaread.reader.AVSChannel"><code>AVSChannels</code></a>.</p>
+
+        <p>Each AVSFile will contain one or more <a class="autorefs autorefs-internal" title="            AVSChannel" href="#avaread.reader.AVSChannel"><code>AVSChannels</code></a>.</p>
+<p>These can be accessed via the <a class="autorefs autorefs-internal" title="            channels" href="#avaread.reader.AVSFile.channels"><code>channels</code></a> attribute, which is a list of <a class="autorefs autorefs-internal" title="            AVSChannel" href="#avaread.reader.AVSChannel"><code>AVSChannel</code></a>s.</p>
+<p>Alternatively, you can access the channels by index, like a list, or by the serial number of the channel, like a dict.</p>
+<p>Example:
+<div class="highlight"><pre><span></span><code><span class="n">file_name</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;./some_spectrum.raw8`) # a file with one or more channels</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">AVSFile</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">spectrum</span> <span class="o">==</span> <span class="n">data</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1"># access via the `channels` attribute is equivalent</span>
+
+<span class="n">serial</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">serial</span>
+<span class="c1"># all below ways of access are equivalent, you can access by index (like a list), or by key (like a dict)</span>
+<span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">data</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">data</span><span class="p">[</span><span class="n">serial</span><span class="p">]</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>path</code>
+            </td>
+            <td>
+                  <code><span title="pathlib.Path">Path</span> | <span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A file path to an <code>AVS</code> file.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
 
 
@@ -2654,6 +2782,7 @@
           <tr class="doc-section-item">
             <td><code><a class="autorefs autorefs-internal" title="            channels (avaread.reader.AVSFile.channels)" href="#avaread.reader.AVSFile.channels">channels</a></code></td>
             <td>
+                  <code><span title="list">list</span>[<a class="autorefs autorefs-internal" title="            AVSChannel (avaread.reader.AVSChannel)" href="#avaread.reader.AVSChannel">AVSChannel</a>]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -2685,18 +2814,43 @@
     </table>
 
                   <details class="mkdocstrings-source">
-                    <summary>Source code in <code>src\avaread\reader.py</code></summary>
-                    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="234 "></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
-<span class="linenos" data-linenos="235 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Read a AVS file from disk and create an object that can be used to easily acces the (meta)data.&quot;&quot;&quot;</span>
-<span class="linenos" data-linenos="236 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
-<span class="linenos" data-linenos="237 "></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
-<span class="linenos" data-linenos="238 "></span>        <span class="bp">self</span><span class="o">.</span><span class="n">preamble</span> <span class="o">=</span> <span class="n">AVSPreamble</span><span class="p">()</span>
-<span class="linenos" data-linenos="239 "></span>        <span class="n">fo</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">preamble</span><span class="p">)</span>
-<span class="linenos" data-linenos="240 "></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">preamble</span><span class="o">.</span><span class="n">FileType</span> <span class="o">!=</span> <span class="sa">b</span><span class="s2">&quot;AVS&quot;</span><span class="p">:</span>
-<span class="linenos" data-linenos="241 "></span>            <span class="c1"># Raise error when magic bytes mismatch</span>
-<span class="linenos" data-linenos="242 "></span>            <span class="k">raise</span> <span class="n">AvaReadException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is not a valid Avantes `AVS` file.&quot;</span><span class="p">)</span>
-<span class="linenos" data-linenos="243 "></span>        <span class="c1"># TODO: maybe a version check?</span>
-<span class="linenos" data-linenos="244 "></span>        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="n">AVSChannel</span><span class="o">.</span><span class="n">from_buffer</span><span class="p">(</span><span class="n">fo</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">preamble</span><span class="o">.</span><span class="n">channels</span><span class="p">)]</span>
+                    <summary>Source code in <code>src/avaread/reader.py</code></summary>
+                    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="241 "></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">):</span>
+<span class="linenos" data-linenos="242 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Read a AVS file from disk and create an object that can be used to easily acces the (meta)data.</span>
+<span class="linenos" data-linenos="243 "></span>
+<span class="linenos" data-linenos="244 "></span><span class="sd">    Each AVSFile will contain one or more [`AVSChannels`][(m).AVSChannel].</span>
+<span class="linenos" data-linenos="245 "></span>
+<span class="linenos" data-linenos="246 "></span><span class="sd">    These can be accessed via the [`channels`][(c).] attribute, which is a list of [`AVSChannel`][(m).AVSChannel]s.</span>
+<span class="linenos" data-linenos="247 "></span>
+<span class="linenos" data-linenos="248 "></span><span class="sd">    Alternatively, you can access the channels by index, like a list, or by the serial number of the channel, like a dict.</span>
+<span class="linenos" data-linenos="249 "></span>
+<span class="linenos" data-linenos="250 "></span><span class="sd">    Example:</span>
+<span class="linenos" data-linenos="251 "></span><span class="sd">    ```python</span>
+<span class="linenos" data-linenos="252 "></span><span class="sd">    file_name = pathlib.Path(&quot;./some_spectrum.raw8`) # a file with one or more channels</span>
+<span class="linenos" data-linenos="253 "></span>
+<span class="linenos" data-linenos="254 "></span><span class="sd">    data = AVSFile(file_name)</span>
+<span class="linenos" data-linenos="255 "></span>
+<span class="linenos" data-linenos="256 "></span><span class="sd">    for enumerate(spectrum) in data:</span>
+<span class="linenos" data-linenos="257 "></span><span class="sd">        print(spectrum)</span>
+<span class="linenos" data-linenos="258 "></span><span class="sd">        assert spectrum == data.channels[i] # access via the `channels` attribute is equivalent</span>
+<span class="linenos" data-linenos="259 "></span>
+<span class="linenos" data-linenos="260 "></span><span class="sd">    serial = data.channels[0].serial</span>
+<span class="linenos" data-linenos="261 "></span><span class="sd">    # all below ways of access are equivalent, you can access by index (like a list), or by key (like a dict)</span>
+<span class="linenos" data-linenos="262 "></span><span class="sd">    assert data[0] == data.channels[0] == data[serial]</span>
+<span class="linenos" data-linenos="263 "></span><span class="sd">    ```</span>
+<span class="linenos" data-linenos="264 "></span>
+<span class="linenos" data-linenos="265 "></span><span class="sd">    Args:</span>
+<span class="linenos" data-linenos="266 "></span><span class="sd">        path (Path|str): A file path to an `AVS` file.</span>
+<span class="linenos" data-linenos="267 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="268 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+<span class="linenos" data-linenos="269 "></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+<span class="linenos" data-linenos="270 "></span>        <span class="bp">self</span><span class="o">.</span><span class="n">preamble</span> <span class="o">=</span> <span class="n">AVSPreamble</span><span class="p">()</span>
+<span class="linenos" data-linenos="271 "></span>        <span class="n">fo</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">preamble</span><span class="p">)</span>
+<span class="linenos" data-linenos="272 "></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">preamble</span><span class="o">.</span><span class="n">FileType</span> <span class="o">!=</span> <span class="sa">b</span><span class="s2">&quot;AVS&quot;</span><span class="p">:</span>
+<span class="linenos" data-linenos="273 "></span>            <span class="c1"># Raise error when magic bytes mismatch</span>
+<span class="linenos" data-linenos="274 "></span>            <span class="k">raise</span> <span class="n">AvaReadException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is not a valid Avantes `AVS` file.&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="275 "></span>        <span class="c1"># TODO: maybe a version check?</span>
+<span class="linenos" data-linenos="276 "></span>        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AVSChannel</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">AVSChannel</span><span class="o">.</span><span class="n">from_buffer</span><span class="p">(</span><span class="n">fo</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">preamble</span><span class="o">.</span><span class="n">channels</span><span class="p">)]</span>
 </code></pre></div>
                   </details>
 
@@ -2755,7 +2909,7 @@
 
 
 <a href="#avaread.reader.AVSFile.channels" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[(</span><span class="n"><a class="autorefs autorefs-internal" title="            from_buffer (avaread.reader.AVSChannel.from_buffer)" href="#avaread.reader.AVSChannel.from_buffer">from_buffer</a></span><span class="p">(</span><span class="n"><span title="fo">fo</span></span><span class="p">))</span> <span class="k">for</span> <span class="n"><span title="_">_</span></span> <span class="ow">in</span> <span class="p">(</span><span class="n"><span title="range">range</span></span><span class="p">(</span><span class="n"><span title="avaread.reader.AVSFile(self).preamble.channels">channels</span></span><span class="p">))]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">channels</span><span class="p">:</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="            AVSChannel (avaread.reader.AVSChannel)" href="#avaread.reader.AVSChannel">AVSChannel</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="n"><a class="autorefs autorefs-internal" title="            from_buffer (avaread.reader.AVSChannel.from_buffer)" href="#avaread.reader.AVSChannel.from_buffer">from_buffer</a></span><span class="p">(</span><span class="n"><span title="fo">fo</span></span><span class="p">))</span> <span class="k">for</span> <span class="n"><span title="_">_</span></span> <span class="ow">in</span> <span class="p">(</span><span class="n"><span title="range">range</span></span><span class="p">(</span><span class="n"><span title="avaread.reader.AVSFile(self).preamble.channels">channels</span></span><span class="p">))]</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -2833,6 +2987,21 @@
 
         <p>A Store-to-RAM (STR) file.</p>
 <p>These STR files store multiple frames acquired by a single channel, i.e. a kinetic series, or a time-lapse.</p>
+<p>Instead of an <a class="autorefs autorefs-internal" title="            AVSFile" href="#avaread.reader.AVSFile"><code>AVSFile</code></a>, these files store data for a single channel, but multiple <code>frames</code> in sequence.</p>
+<p>The raw signals for all frames are stored in the [data][avaread.reader.data] attribute as a numpy array.</p>
+<p>This array has the shape (pixels, frames), where pixels is the full size of the used CCD sensor.</p>
+<p>If the data was acquired with a smaller region on the sensor active, the inactive pixels will contain zeros.</p>
+<p>The attributes <code>scope</code>, <code>dark</code>, <code>ref</code>, and <code>signal</code> all conveniently return only the active part of the array.</p>
+<p>In addition, you can iterate over an <code>STRFile</code> to get the background-corrected data on a per-frame basis, or use access-by-index.</p>
+<p>Example:
+<div class="highlight"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;./some_str_file.str&quot;</span><span class="p">)</span>
+<span class="n">spectra</span> <span class="o">=</span> <span class="n">STRFile</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">frame</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">spectra</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spectra</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Frame: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</code></pre></div></p>
 
 
 
@@ -2894,6 +3063,16 @@
             <td>
               <div class="doc-md-description">
                 
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><a class="autorefs autorefs-internal" title="            serial (avaread.reader.STRFile.serial)" href="#avaread.reader.STRFile.serial">serial</a></code></td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The serial of the spectrometer.</p>
               </div>
             </td>
           </tr>
@@ -2992,35 +3171,35 @@
     </table>
 
                   <details class="mkdocstrings-source">
-                    <summary>Source code in <code>src\avaread\reader.py</code></summary>
-                    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="289 "></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
-<span class="linenos" data-linenos="290 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Read a STR file from disk and create an object that can be used to easily acces the (meta)data.&quot;&quot;&quot;</span>
-<span class="linenos" data-linenos="291 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">preamble</span> <span class="o">=</span> <span class="n">STRPreamble</span><span class="p">()</span>
-<span class="linenos" data-linenos="292 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_header</span> <span class="o">=</span> <span class="n">STRInfoBlock</span><span class="p">()</span>
-<span class="linenos" data-linenos="293 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_mapping</span> <span class="o">=</span> <span class="n">StructMapping</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">)</span>
-<span class="linenos" data-linenos="294 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
-<span class="linenos" data-linenos="295 "></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
-<span class="linenos" data-linenos="296 "></span>        <span class="n">fo</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">preamble</span><span class="p">)</span>
-<span class="linenos" data-linenos="297 "></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">preamble</span><span class="o">.</span><span class="n">FileType</span> <span class="o">!=</span> <span class="sa">b</span><span class="s2">&quot;STR&quot;</span><span class="p">:</span>
-<span class="linenos" data-linenos="298 "></span>            <span class="c1"># Raise error when magic bytes mismatch; must be `STR`</span>
-<span class="linenos" data-linenos="299 "></span>            <span class="k">raise</span> <span class="n">AvaReadException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is not a valid Avantes `STR` file.&quot;</span><span class="p">)</span>
-<span class="linenos" data-linenos="300 "></span>        <span class="n">fo</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">)</span>
-<span class="linenos" data-linenos="301 "></span>        <span class="n">fo</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>  <span class="c1"># Header plus a reserved (or padding) block always seems to be 10000 bytes.</span>
-<span class="linenos" data-linenos="302 "></span>        <span class="n">pixels</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span>
-<span class="linenos" data-linenos="303 "></span>            <span class="s2">&quot;&lt;hbhb&quot;</span><span class="p">,</span> <span class="n">fo</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="linenos" data-linenos="304 "></span>        <span class="p">)</span>  <span class="c1"># appears this block contains: (pixels, somevalue1, pixels, somevalue2)</span>
-<span class="linenos" data-linenos="305 "></span>        <span class="c1"># next is some block of mysterious values of type double,but of value `1`. Some flag?</span>
-<span class="linenos" data-linenos="306 "></span>        <span class="c1"># values = np.fromfile(fo, dtype=np.double, count = pixels)</span>
-<span class="linenos" data-linenos="307 "></span>        <span class="n">fo</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">pixels</span> <span class="o">*</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">c_double</span><span class="p">)),</span> <span class="n">os</span><span class="o">.</span><span class="n">SEEK_CUR</span><span class="p">)</span>  <span class="c1"># skip for now</span>
-<span class="linenos" data-linenos="308 "></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_wavelength</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">fo</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="n">pixels</span><span class="p">)</span>
-<span class="linenos" data-linenos="309 "></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_dark</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">fo</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="n">pixels</span><span class="p">)</span>
-<span class="linenos" data-linenos="310 "></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">fo</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="n">pixels</span><span class="p">)</span>
-<span class="linenos" data-linenos="311 "></span>        <span class="bp">self</span><span class="o">.</span><span class="n">delay</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">preamble</span><span class="o">.</span><span class="n">frames</span><span class="p">)</span>
-<span class="linenos" data-linenos="312 "></span>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">pixels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">preamble</span><span class="o">.</span><span class="n">frames</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
-<span class="linenos" data-linenos="313 "></span>        <span class="n">stride</span> <span class="o">=</span> <span class="n">pixels</span> <span class="o">*</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">c_double</span><span class="p">)</span>  <span class="c1"># noqa: F841</span>
-<span class="linenos" data-linenos="314 "></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">preamble</span><span class="o">.</span><span class="n">frames</span><span class="p">):</span>
-<span class="linenos" data-linenos="315 "></span>            <span class="bp">self</span><span class="o">.</span><span class="n">delay</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="n">fo</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">sizeof</span><span class="p">(</span><span class="n">c_long</span><span class="p">)))[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span>  <span class="c1"># `unpack` return tuple</span>
-<span class="linenos" data-linenos="316 "></span>            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">fo</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="n">pixels</span><span class="p">)</span>
+                    <summary>Source code in <code>src/avaread/reader.py</code></summary>
+                    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="345 "></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+<span class="linenos" data-linenos="346 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Read a STR file from disk and create an object that can be used to easily acces the (meta)data.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="347 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">preamble</span> <span class="o">=</span> <span class="n">STRPreamble</span><span class="p">()</span>
+<span class="linenos" data-linenos="348 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_header</span> <span class="o">=</span> <span class="n">STRInfoBlock</span><span class="p">()</span>
+<span class="linenos" data-linenos="349 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_mapping</span> <span class="o">=</span> <span class="n">StructMapping</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">)</span>
+<span class="linenos" data-linenos="350 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+<span class="linenos" data-linenos="351 "></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+<span class="linenos" data-linenos="352 "></span>        <span class="n">fo</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">preamble</span><span class="p">)</span>
+<span class="linenos" data-linenos="353 "></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">preamble</span><span class="o">.</span><span class="n">FileType</span> <span class="o">!=</span> <span class="sa">b</span><span class="s2">&quot;STR&quot;</span><span class="p">:</span>
+<span class="linenos" data-linenos="354 "></span>            <span class="c1"># Raise error when magic bytes mismatch; must be `STR`</span>
+<span class="linenos" data-linenos="355 "></span>            <span class="k">raise</span> <span class="n">AvaReadException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is not a valid Avantes `STR` file.&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="356 "></span>        <span class="n">fo</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">)</span>
+<span class="linenos" data-linenos="357 "></span>        <span class="n">fo</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>  <span class="c1"># Header plus a reserved (or padding) block always seems to be 10000 bytes.</span>
+<span class="linenos" data-linenos="358 "></span>        <span class="n">pixels</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span>
+<span class="linenos" data-linenos="359 "></span>            <span class="s2">&quot;&lt;hbhb&quot;</span><span class="p">,</span> <span class="n">fo</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="linenos" data-linenos="360 "></span>        <span class="p">)</span>  <span class="c1"># appears this block contains: (pixels, somevalue1, pixels, somevalue2)</span>
+<span class="linenos" data-linenos="361 "></span>        <span class="c1"># next is some block of mysterious values of type double,but of value `1`. Some flag?</span>
+<span class="linenos" data-linenos="362 "></span>        <span class="c1"># values = np.fromfile(fo, dtype=np.double, count = pixels)</span>
+<span class="linenos" data-linenos="363 "></span>        <span class="n">fo</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">pixels</span> <span class="o">*</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">c_double</span><span class="p">)),</span> <span class="n">os</span><span class="o">.</span><span class="n">SEEK_CUR</span><span class="p">)</span>  <span class="c1"># skip for now</span>
+<span class="linenos" data-linenos="364 "></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_wavelength</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">fo</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="n">pixels</span><span class="p">)</span>
+<span class="linenos" data-linenos="365 "></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_dark</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">fo</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="n">pixels</span><span class="p">)</span>
+<span class="linenos" data-linenos="366 "></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">fo</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="n">pixels</span><span class="p">)</span>
+<span class="linenos" data-linenos="367 "></span>        <span class="bp">self</span><span class="o">.</span><span class="n">delay</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">preamble</span><span class="o">.</span><span class="n">frames</span><span class="p">)</span>
+<span class="linenos" data-linenos="368 "></span>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">pixels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">preamble</span><span class="o">.</span><span class="n">frames</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
+<span class="linenos" data-linenos="369 "></span>        <span class="n">stride</span> <span class="o">=</span> <span class="n">pixels</span> <span class="o">*</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">c_double</span><span class="p">)</span>  <span class="c1"># noqa: F841</span>
+<span class="linenos" data-linenos="370 "></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">preamble</span><span class="o">.</span><span class="n">frames</span><span class="p">):</span>
+<span class="linenos" data-linenos="371 "></span>            <span class="bp">self</span><span class="o">.</span><span class="n">delay</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="n">fo</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">sizeof</span><span class="p">(</span><span class="n">c_long</span><span class="p">)))[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span>  <span class="c1"># `unpack` return tuple</span>
+<span class="linenos" data-linenos="372 "></span>            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">fo</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="n">pixels</span><span class="p">)</span>
 </code></pre></div>
                   </details>
 
@@ -3191,6 +3370,26 @@
 </code></pre></div>
 
     <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="avaread.reader.STRFile.serial" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">serial</span>
+
+
+<a href="#avaread.reader.STRFile.serial" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">serial</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>The serial of the spectrometer.</p>
 
     </div>
 
@@ -3412,7 +3611,7 @@
 
 
             <details class="mkdocstrings-source">
-              <summary>Source code in <code>src\avaread\reader.py</code></summary>
+              <summary>Source code in <code>src/avaread/reader.py</code></summary>
               <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="23 "></span><span class="k">def</span><span class="w"> </span><span class="nf">_extract_datetime</span><span class="p">(</span><span class="n">timestamp</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span class="linenos" data-linenos="24 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract a `datetime` object from a provided timestamp.&quot;&quot;&quot;</span>
 <span class="linenos" data-linenos="25 "></span>    <span class="n">year</span> <span class="o">=</span> <span class="n">timestamp</span> <span class="o">&gt;&gt;</span> <span class="mi">20</span>
@@ -3445,31 +3644,31 @@
 
 
             <details class="mkdocstrings-source">
-              <summary>Source code in <code>src\avaread\reader.py</code></summary>
-              <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="400 "></span><span class="k">def</span><span class="w"> </span><span class="nf">read_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AVSFile</span> <span class="o">|</span> <span class="n">STRFile</span><span class="p">:</span>
-<span class="linenos" data-linenos="401 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Open a file saved by Avantes AvaSoft.</span>
-<span class="linenos" data-linenos="402 "></span>
-<span class="linenos" data-linenos="403 "></span><span class="sd">    Detects the file type from the file and returns a corresponding instance of [`AVSFile`][(m).AVSFile] or [`STRFile`][(m).STRFile].</span>
-<span class="linenos" data-linenos="404 "></span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="linenos" data-linenos="405 "></span>    <span class="n">file_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
-<span class="linenos" data-linenos="406 "></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">file_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-<span class="linenos" data-linenos="407 "></span>        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2"> does not exist&quot;</span><span class="p">)</span>
-<span class="linenos" data-linenos="408 "></span>    <span class="k">elif</span> <span class="n">file_path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
-<span class="linenos" data-linenos="409 "></span>        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2"> is a directory, please provide a file path&quot;</span><span class="p">)</span>
-<span class="linenos" data-linenos="410 "></span>    <span class="k">with</span> <span class="n">file_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
-<span class="linenos" data-linenos="411 "></span>        <span class="n">prelude</span> <span class="o">=</span> <span class="n">fo</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos" data-linenos="412 "></span>    <span class="n">file_format</span> <span class="o">=</span> <span class="n">prelude</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-<span class="linenos" data-linenos="413 "></span>    <span class="n">file_version</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">prelude</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span> <span class="o">/</span> <span class="mi">10</span>
-<span class="linenos" data-linenos="414 "></span>    <span class="k">if</span> <span class="n">file_format</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;AVS&quot;</span><span class="p">:</span>
-<span class="linenos" data-linenos="415 "></span>        <span class="k">if</span> <span class="n">file_version</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
-<span class="linenos" data-linenos="416 "></span>            <span class="k">raise</span> <span class="n">AvaReadException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File version </span><span class="si">{</span><span class="n">file_version</span><span class="si">}</span><span class="s2"> is not supported.&quot;</span><span class="p">)</span>
-<span class="linenos" data-linenos="417 "></span>        <span class="k">return</span> <span class="n">AVSFile</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
-<span class="linenos" data-linenos="418 "></span>    <span class="k">elif</span> <span class="n">file_format</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;STR&quot;</span><span class="p">:</span>
-<span class="linenos" data-linenos="419 "></span>        <span class="k">if</span> <span class="n">file_version</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
-<span class="linenos" data-linenos="420 "></span>            <span class="k">raise</span> <span class="n">AvaReadException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File version </span><span class="si">{</span><span class="n">file_version</span><span class="si">}</span><span class="s2"> is not supported.&quot;</span><span class="p">)</span>
-<span class="linenos" data-linenos="421 "></span>        <span class="k">return</span> <span class="n">STRFile</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
-<span class="linenos" data-linenos="422 "></span>    <span class="k">else</span><span class="p">:</span>
-<span class="linenos" data-linenos="423 "></span>        <span class="k">raise</span> <span class="n">AvaReadException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_path</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is not a valid Avantes AvaSoft 8 file.&quot;</span><span class="p">)</span>
+              <summary>Source code in <code>src/avaread/reader.py</code></summary>
+              <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="461 "></span><span class="k">def</span><span class="w"> </span><span class="nf">read_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AVSFile</span> <span class="o">|</span> <span class="n">STRFile</span><span class="p">:</span>
+<span class="linenos" data-linenos="462 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Open a file saved by Avantes AvaSoft.</span>
+<span class="linenos" data-linenos="463 "></span>
+<span class="linenos" data-linenos="464 "></span><span class="sd">    Detects the file type from the file and returns a corresponding instance of [`AVSFile`][(m).AVSFile] or [`STRFile`][(m).STRFile].</span>
+<span class="linenos" data-linenos="465 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="466 "></span>    <span class="n">file_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="linenos" data-linenos="467 "></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">file_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+<span class="linenos" data-linenos="468 "></span>        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2"> does not exist&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="469 "></span>    <span class="k">elif</span> <span class="n">file_path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+<span class="linenos" data-linenos="470 "></span>        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2"> is a directory, please provide a file path&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="471 "></span>    <span class="k">with</span> <span class="n">file_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+<span class="linenos" data-linenos="472 "></span>        <span class="n">prelude</span> <span class="o">=</span> <span class="n">fo</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos" data-linenos="473 "></span>    <span class="n">file_format</span> <span class="o">=</span> <span class="n">prelude</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="linenos" data-linenos="474 "></span>    <span class="n">file_version</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">prelude</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span> <span class="o">/</span> <span class="mi">10</span>
+<span class="linenos" data-linenos="475 "></span>    <span class="k">if</span> <span class="n">file_format</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;AVS&quot;</span><span class="p">:</span>
+<span class="linenos" data-linenos="476 "></span>        <span class="k">if</span> <span class="n">file_version</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+<span class="linenos" data-linenos="477 "></span>            <span class="k">raise</span> <span class="n">AvaReadException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File version </span><span class="si">{</span><span class="n">file_version</span><span class="si">}</span><span class="s2"> is not supported.&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="478 "></span>        <span class="k">return</span> <span class="n">AVSFile</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="linenos" data-linenos="479 "></span>    <span class="k">elif</span> <span class="n">file_format</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;STR&quot;</span><span class="p">:</span>
+<span class="linenos" data-linenos="480 "></span>        <span class="k">if</span> <span class="n">file_version</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+<span class="linenos" data-linenos="481 "></span>            <span class="k">raise</span> <span class="n">AvaReadException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File version </span><span class="si">{</span><span class="n">file_version</span><span class="si">}</span><span class="s2"> is not supported.&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="482 "></span>        <span class="k">return</span> <span class="n">STRFile</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="linenos" data-linenos="483 "></span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos" data-linenos="484 "></span>        <span class="k">raise</span> <span class="n">AvaReadException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_path</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is not a valid Avantes AvaSoft 8 file.&quot;</span><span class="p">)</span>
 </code></pre></div>
             </details>
     </div>
