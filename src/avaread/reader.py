@@ -120,11 +120,16 @@ class AVSChannel:
     def __init__(self, header: AVSInfoBlock, data: NDArray[np.float32]):
         """Instantiate a `AVSChannel` from a header (which contain metadata) and data.
 
+        To access the data you can use the following attibutes:
+        [`scope`][..] corresponds to the raw signal, [`dark`][..] to the associated background signal, and [`ref`][..] to a reference signal.
+
+        In addition, the [`data`][..] attribute gives you the array of all these signals together.
+
         Arguments:
             header:     A C Structure containing channel-specific metadata.
             data:       A 2D array with columns in the order [`wavelength`,`scope`,`dark`,`reference`]
 
-        [`scope`][..] corresponds to the raw signal, [`dark`][..] to the associated background signal, and [`reference`][..] to a reference signal.
+
         """
         self._mapping = StructMapping(header)
         self.data = data
@@ -170,6 +175,11 @@ class AVSChannel:
         # TODO: Check if this padding has a role, or is just padding
         buffer.seek(startBlock + header.blockLength + cls.PADDING)
         return AVSChannel(header, data)
+
+    @property
+    def serial(self):
+        """The serial number of the spectrometer."""
+        return self.ID.SerialNumber
 
     @property
     def date(self):
@@ -226,13 +236,35 @@ class AVSChannel:
 
 
 class AVSFile:
-    """A file in Avantes `AVS` format, containing data from one or more channels.
+    """A file in Avantes `AVS` format, containing data from one or more channels."""
 
-    Each AVSFile will contain one or more [`AVSChannels`][(m).AVSChannel].
-    """
+    def __init__(self, path: Path | str):
+        """Read a AVS file from disk and create an object that can be used to easily acces the (meta)data.
 
-    def __init__(self, path: Path):
-        """Read a AVS file from disk and create an object that can be used to easily acces the (meta)data."""
+        Each AVSFile will contain one or more [`AVSChannels`][(m).AVSChannel].
+
+        These can be accessed via the [`channels`][(c).] attribute, which is a list of [`AVSChannel`][(m).AVSChannel]s.
+
+        Alternatively, you can access the channels by index, like a list, or by the serial number of the channel, like a dict.
+
+        Example:
+        ```python
+        file_name = pathlib.Path("./some_spectrum.raw8`) # a file with one or more channels
+
+        data = AVSFile(file_name)
+
+        for enumerate(spectrum) in data:
+            print(spectrum)
+            assert spectrum == data.channels[i] # access via the `channels` attribute is equivalent
+
+        serial = data.channels[0].serial
+        # all below ways of access are equivalent, you can access by index (like a list), or by key (like a dict)
+        assert data[0] == data.channels[0] == data[serial]
+        ```
+
+        Args:
+            path (Path|str): A file path to an `AVS` file.
+        """
         self.path = Path(path).resolve()
         with self.path.open("rb") as fo:
             self.preamble = AVSPreamble()
@@ -241,7 +273,7 @@ class AVSFile:
                 # Raise error when magic bytes mismatch
                 raise AvaReadException(f"{self.path.name} is not a valid Avantes `AVS` file.")
             # TODO: maybe a version check?
-            self.channels = [AVSChannel.from_buffer(fo) for _ in range(self.preamble.channels)]
+            self.channels: list[AVSChannel] = [AVSChannel.from_buffer(fo) for _ in range(self.preamble.channels)]
 
     def __repr__(self):
         """Representation of the object."""
@@ -284,6 +316,30 @@ class STRFile:
     """A Store-to-RAM (STR) file.
 
     These STR files store multiple frames acquired by a single channel, i.e. a kinetic series, or a time-lapse.
+
+    Instead of an [`AVSFile`][(m).], these files store data for a single channel, but multiple `frames` in sequence.
+
+    The raw signals for all frames are stored in the [data][..] attribute as a numpy array.
+
+    This array has the shape (pixels, frames), where pixels is the full size of the used CCD sensor.
+
+    If the data was acquired with a smaller region on the sensor active, the inactive pixels will contain zeros.
+
+    The attributes `scope`, `dark`, `ref`, and `signal` all conveniently return only the active part of the array.
+
+    In addition, you can iterate over an `STRFile` to get the background-corrected data on a per-frame basis, or use access-by-index.
+
+    Example:
+    ```python
+    file = pathlib.Path("./some_str_file.str")
+    spectra = STRFile(file)
+
+    for i,frame in enumerate(spectra):
+        plt.plot(spectra.wavelength, frame, label=f"Frame: {i}")
+
+    plt.legend()
+    ```
+
     """
 
     def __init__(self, path: Path):
@@ -324,7 +380,7 @@ class STRFile:
 
         This performs a lookup for attributes that are not already defined (i.e. those that are not actual defined class or instance attributes).
 
-        If the given `name` is a valid field of the [`header`][..], it will be returned as if it were an attribute.
+        If the given `name` is a valid field of the [`_header`][..], it will be returned as if it were an attribute.
 
         The [`_mapping`][..] attribute is a `Mapping` proxy of header for mapping C types to python native types.
         """
@@ -340,6 +396,11 @@ class STRFile:
     def __len__(self):
         """Return amount of frames contained in file."""
         return self.preamble.frames
+
+    @property
+    def serial(self):
+        """The serial of the spectrometer."""
+        return self.ID.SerialNumber
 
     @property
     def name(self):

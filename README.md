@@ -36,8 +36,6 @@ To install the latest development version from GitHub, you can use:
 pip install git+https://github.com/AntoineTUE/avaread.git
 ```
 
-Further optional features can be installed by specifying the feature flag, as defined in the [pyproject.toml](./pyproject.toml).
-
 ## How to use
 
 Using `avaread` is fairly straightforward, you should be fine with using the `read_file` function to open any Avantes AvaSoft 8 file.
@@ -83,4 +81,4 @@ for i, frame in enumerate(data2):
 
 AvaRead is licensed under the MIT license.
 
-See [LICENSE](LICENSE).
+See [LICENSE](./LICENSE).
